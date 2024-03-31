@@ -1,4 +1,7 @@
-# Friday Night Funkin' - Psych Engine
+# Friday Night Funkin' - Psych Engine (modified)
+For starting, install this: `haxelib git flixel https://github.com/MarzkX/flixel` on Command prompt/PowerShell
+
+# Friday Night Funkin' - Psych Engine (0.6.3)
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
 ## Installation:
@@ -18,12 +21,19 @@ If you want video support on your mod, simply do `haxelib install hxCodec` on a 
 otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
 
 ## Credits:
+
+### Modified
+* Marazak(X) - Modified, Programmer
+
+### Psych Creators
 * Shadow Mario - Programmer
-* RiverOaken - Artist
-* Yoshubs - Assistant Programmer
+* Riveren - Artist, Animator
+
+### Former Engine members
+* bbpanzu - Ex-Programmer
+* shubs - Ex-Programmer
 
 ### Special Thanks
-* bbpanzu - Ex-Programmer
 * shubs - New Input System
 * SqirraRNG - Crash Handler and Base code for Chart Editor's Waveform
 * KadeDev - Fixed some cool stuff on Chart Editor and other PRs
