@@ -1,0 +1,40 @@
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.AssemblyReference.cache
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\FlixelCrashHandler.FlixelCrashHandler.resources
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.GenerateResource.cache
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.CoreCompileInputs.cache
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe.config
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\bin\Debug\FlixelCrashHandler.pdb
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\Flixel Crash Handler.Properties.Resources.resources
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\FlixelCrashHandler.exe
+M:\FNF-Entity-Mrzk-Version\crashDialog\solution\obj\Debug\FlixelCrashHandler.pdb
+M:\Impostor-Onslaught\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe.config
+M:\Impostor-Onslaught\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe
+M:\Impostor-Onslaught\crashDialog\solution\bin\Debug\FlixelCrashHandler.pdb
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.AssemblyReference.cache
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\FlixelCrashHandler.FlixelCrashHandler.resources
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\Flixel Crash Handler.Properties.Resources.resources
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.GenerateResource.cache
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.CoreCompileInputs.cache
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\FlixelCrashHandler.exe
+M:\Impostor-Onslaught\crashDialog\solution\obj\Debug\FlixelCrashHandler.pdb
+M:\UnnamedProject\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe.config
+M:\UnnamedProject\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe
+M:\UnnamedProject\crashDialog\solution\bin\Debug\FlixelCrashHandler.pdb
+M:\UnnamedProject\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.AssemblyReference.cache
+M:\UnnamedProject\crashDialog\solution\obj\Debug\FlixelCrashHandler.FlixelCrashHandler.resources
+M:\UnnamedProject\crashDialog\solution\obj\Debug\Flixel Crash Handler.Properties.Resources.resources
+M:\UnnamedProject\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.GenerateResource.cache
+M:\UnnamedProject\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.CoreCompileInputs.cache
+M:\UnnamedProject\crashDialog\solution\obj\Debug\FlixelCrashHandler.exe
+M:\UnnamedProject\crashDialog\solution\obj\Debug\FlixelCrashHandler.pdb
+M:\Amogus\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe.config
+M:\Amogus\crashDialog\solution\bin\Debug\FlixelCrashHandler.exe
+M:\Amogus\crashDialog\solution\bin\Debug\FlixelCrashHandler.pdb
+M:\Amogus\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.AssemblyReference.cache
+M:\Amogus\crashDialog\solution\obj\Debug\FlixelCrashHandler.FlixelCrashHandler.resources
+M:\Amogus\crashDialog\solution\obj\Debug\Flixel Crash Handler.Properties.Resources.resources
+M:\Amogus\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.GenerateResource.cache
+M:\Amogus\crashDialog\solution\obj\Debug\FlixelCrashHandler.csproj.CoreCompileInputs.cache
+M:\Amogus\crashDialog\solution\obj\Debug\FlixelCrashHandler.exe
+M:\Amogus\crashDialog\solution\obj\Debug\FlixelCrashHandler.pdb
