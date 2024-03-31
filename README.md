@@ -1,4 +1,6 @@
 # Friday Night Funkin' - Psych Engine (modified)
+
+## Installation:
 For starting, install this: `haxelib git flixel https://github.com/MarzkX/flixel` on Command prompt/PowerShell
 
 # Friday Night Funkin' - Psych Engine (0.6.3)
