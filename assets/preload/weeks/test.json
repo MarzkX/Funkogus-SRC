@@ -1,0 +1,20 @@
+{
+	"songs": [
+		["Test", "bf", [165, 165, 165]]
+	],
+
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "",
+	"weekBefore": "test",
+	"weekName": "Test",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}
