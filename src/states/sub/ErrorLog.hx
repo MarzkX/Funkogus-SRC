@@ -1,5 +1,6 @@
 package states.sub;
 
+//unfinished or not working now
 class ErrorLog extends MusicBeatSubstate
 {
     var errorName:String;
