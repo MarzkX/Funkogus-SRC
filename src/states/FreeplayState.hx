@@ -27,11 +27,23 @@ class FreeplayState extends MusicBeatState
 	var bg:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
+	public static var freeplaySelect:Int;
+	var weeks:Null<Array<String>>;
+
+	public function new(?newWeeks:Null<Array<String>>)
+	{
+		super();
+
+		if (newWeeks != null)
+			weeks = newWeeks;
+	}
 
 	override function create()
 	{
 		//Paths.clearStoredMemory();
 		//Paths.clearUnusedMemory();
+		if (weeks == null)
+			weeks = WeekData.weeksList;
 		
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -42,10 +54,11 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		for (i in 0...WeekData.weeksList.length) {
-			if(weekIsLocked(WeekData.weeksList[i])) continue;
+		for (i in 0...weeks.length) {
+			if (weekIsLocked(weeks[i]))
+				continue;
 
-			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
+			var leWeek:WeekData = WeekData.weeksLoaded.get(weeks[i]);
 			var leSongs:Array<String> = [];
 			var leChars:Array<String> = [];
 
@@ -63,7 +76,11 @@ class FreeplayState extends MusicBeatState
 				{
 					colors = [146, 113, 253];
 				}
-				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+				switch (song[0])
+				{
+					default:
+						addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+				}
 			}
 		}
 		WeekData.loadTheFirstEnabledMod();
@@ -89,9 +106,12 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
+			if (grpSongs.members[i] != null)
+				return;
+
 			var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
 			songText.isMenuItem = true;
-			songText.targetY = i - curSelected;
+			songText.targetY = i;
 			grpSongs.add(songText);
 
 			var maxWidth = 980;
@@ -296,7 +316,7 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
+			MusicBeatState.switchState(new FreeplaySelectorState());
 		}
 
 		if(ctrl)
