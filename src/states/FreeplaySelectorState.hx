@@ -35,7 +35,10 @@ class FreeplaySelectorState extends MusicBeatState
     var itemTween:FlxTween;
     var textTween:FlxTween;
 
-    var arrow:FlxSprite;
+    var arrowPoint:FlxPoint = new FlxPoint((FlxG.width/2)-75, FlxG.height - (45 + 30));
+    var arrowPointPress:FlxPoint = new FlxPoint((FlxG.width/2)-125, FlxG.height - (95 + 30));
+
+    var arrowGrp:FlxSpriteGroup;
     var arrowTween:FlxTween;
 
     var jsonFile:SelectorData;
@@ -104,19 +107,31 @@ class FreeplaySelectorState extends MusicBeatState
             trace('iy: ${menuItems.y} ty: ${menuTexts.y}');
         }
 
-        arrow = new FlxSprite();
+        arrowGrp = new FlxSpriteGroup(0, -150);
+        add(arrowGrp);
+
+        var arrow:FlxSprite = new FlxSprite();
         arrow.frames = Paths.getSparrowAtlas('NOTE_assets');
         arrow.animation.addByPrefix('up','green0',24,false);
-        arrow.animation.addByPrefix('up-press','up confirm',24,false);
         arrow.animation.addByPrefix('down','blue0',24,false);
-        arrow.animation.addByPrefix('down-press','down confirm',24,false);
-        arrow.animation.play('down');
-        arrow.screenCenter(X);
-        arrow.y = (FlxG.height - arrow.height) - 25;
+        arrow.x = arrowPoint.x;
+        arrow.y = arrowPoint.y;
         arrow.antialiasing = ClientPrefs.globalAntialiasing;
-        add(arrow);
+
+        var pressA:FlxSprite = new FlxSprite();
+        pressA.frames = Paths.getSparrowAtlas('NOTE_assets');
+        pressA.animation.addByPrefix('up','up confirm',24,false);
+        pressA.animation.addByPrefix('down','down confirm',24,false);
+        pressA.x = arrowPointPress.x;
+        pressA.y = arrowPointPress.y;
+        pressA.visible = false;
+        pressA.antialiasing = ClientPrefs.globalAntialiasing;
+
+        arrowGrp.add(arrow);
+        arrowGrp.add(pressA);
 
         changeItem();
+        changeSelection(true);
 
         super.create();
     }
@@ -155,41 +170,30 @@ class FreeplaySelectorState extends MusicBeatState
             }
 
             if(controls.UI_UP_P) {
-                arrow.centerOffsets();
-                arrow.animation.play('up-press');
-
                 changeSelection();
             }
 
             if(controls.UI_DOWN_P) {
-                arrow.centerOffsets();
-                arrow.animation.play('down-press');
-
                 changeSelection();
             }
+        }
 
-            if(arrow.animation != null && arrow.animation.finished)
-            {
-                if(selectUp)
-                {
-                    arrow.animation.play('down');
-                }
-                else
-                {
-                    arrow.animation.play('up');
-                }
-                arrow.updateHitbox();
-            }
+        if(arrowGrp.members[1].animation != null && arrowGrp.members[1].animation.finished)
+        {
+            arrowGrp.members[1].visible = false;
+            arrowGrp.members[0].visible = true;
         }
 
         super.update(elapsed);
     }
 
-    function changeSelection()
+    function changeSelection(?starting:Bool = false)
     {
         FlxG.sound.play(Paths.sound('scrollMenu'), 0.7);
-        trace('what: $selectUp');
-        selectUp = !selectUp;
+
+        if(!starting)
+            selectUp = !selectUp;
+        
         if(selectUp) {
             if(textTween != null)
                 textTween.cancel();
@@ -203,7 +207,15 @@ class FreeplaySelectorState extends MusicBeatState
             textTween = FlxTween.tween(menuTexts, {y: 0}, 0.4, {ease: FlxEase.quadOut});
             itemTween = FlxTween.tween(menuItems, {y: 0}, 0.4, {ease: FlxEase.quadOut});
 
-            arrowTween = FlxTween.tween(arrow, {y: (FlxG.height - arrow.height) - 25}, 0.4, {ease: FlxEase.quadOut});
+            arrowTween = FlxTween.tween(arrowGrp, {y: -150}, 0.4, {ease: FlxEase.quadOut});
+
+            if(!starting)
+            {
+                arrowGrp.members[1].visible = true;
+                arrowGrp.members[0].visible = false;
+                arrowGrp.members[1].animation.play('up');
+            }
+            arrowGrp.members[0].animation.play('down');
             
             changeItem();
         } else {
@@ -219,7 +231,15 @@ class FreeplaySelectorState extends MusicBeatState
             textTween = FlxTween.tween(menuTexts, {y: -500}, 0.4, {ease: FlxEase.quadOut});
             itemTween = FlxTween.tween(menuItems, {y: -500}, 0.4, {ease: FlxEase.quadOut});
 
-            arrowTween = FlxTween.tween(arrow, {y: 25}, 0.4, {ease: FlxEase.quadOut});
+            arrowTween = FlxTween.tween(arrowGrp, {y: -575}, 0.4, {ease: FlxEase.quadOut});
+
+            if(!starting)
+            {
+                arrowGrp.members[1].visible = true;
+                arrowGrp.members[0].visible = false;
+                arrowGrp.members[1].animation.play('down');
+            }
+            arrowGrp.members[0].animation.play('up');
 
             changeItem(3);
         }
