@@ -7,6 +7,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	var camFollowPos:FlxObject;
 	var updateCamera:Bool = false;
 	var playingDeathSound:Bool = false;
+	var enterPressed:Bool = false;
 
 	var stageSuffix:String = "";
 
@@ -61,6 +62,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		add(camFollowPos);
 	}
 
+	var backPressed:Bool = false;
+
 	var isFollowingAlready:Bool = false;
 	override function update(elapsed:Float)
 	{
@@ -74,24 +77,33 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		if (controls.ACCEPT)
 		{
-			endBullshit();
+			if(!backPressed)
+			{
+				enterPressed = true;
+				endBullshit();
+			}
 		}
 
 		if (controls.BACK)
 		{
-			FlxG.sound.music.stop();
-			PlayState.deathCounter = 0;
-			PlayState.seenCutscene = false;
-			PlayState.chartingMode = false;
+			if(!enterPressed)
+			{
+				backPressed = true;
 
-			WeekData.loadTheFirstEnabledMod();
-			if (PlayState.isStoryMode)
-				MusicBeatState.switchState(new StoryMenuState());
-			else
-				MusicBeatState.switchState(new FreeplayState());
-
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
-			PlayState.instance.callOnLuas('onGameOverConfirm', [false]);
+				FlxG.sound.music.stop();
+				PlayState.deathCounter = 0;
+				PlayState.seenCutscene = false;
+				PlayState.chartingMode = false;
+	
+				WeekData.loadTheFirstEnabledMod();
+				if (PlayState.isStoryMode)
+					MusicBeatState.switchState(new StoryMenuState());
+				else
+					MusicBeatState.switchState(new FreeplayState(FreeplaySelectorState.weeks[FreeplaySelectorState.curSelected]));
+	
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				PlayState.instance.callOnLuas('onGameOverConfirm', [false]);
+			}
 		}
 
 		if (boyfriend.animation.curAnim != null && boyfriend.animation.curAnim.name == 'firstDeath')
